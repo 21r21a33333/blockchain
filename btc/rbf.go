@@ -196,11 +196,7 @@ func (w *batcherWallet) getConfirmedBatch(c context.Context) (Batch, error) {
 		}
 
 		if tx.Status.Confirmed {
-			if confirmedBatch.Tx.TxID == "" {
-				confirmedBatch = batch
-			} else {
-				return Batch{}, errors.New("multiple confirmed batches found")
-			}
+			confirmedBatch = batch
 		}
 	}
 
